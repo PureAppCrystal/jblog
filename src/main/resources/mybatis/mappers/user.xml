@@ -15,7 +15,7 @@
 	<select id="getById" parameterType="string" resultType="uservo">
 		<![CDATA[
 		select * from member
-		where id = #{id }
+		where id=#{id }
 		 ]]>
 	</select>
 </mapper>

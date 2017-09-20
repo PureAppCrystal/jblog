@@ -9,9 +9,7 @@
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 </head>
-<script
-	src="${pageContext.servletContext.contextPath }/assets/js/jquery/jquery-1.9.0.js"
-	type="text/javascript">
+<script src="${pageContext.servletContext.contextPath }/assets/js/jquery/jquery-1.9.0.js" type="text/javascript">
 </script>
 <script>
 	var FormValidator = {
@@ -71,7 +69,7 @@
 			}
 		},
 		
-		onCheckIdAjaxError : function( xhr, status, e ) {
+		onCheckIdAjaxError : function(xhr, status, e) {
 			console.error(status + ":" + e);
 		},
 		
@@ -115,9 +113,7 @@
 		}
 	}
 	
-
 	$(function() {
-		console.log("init~3");
 		FormValidator.init();
 	});
 </script>

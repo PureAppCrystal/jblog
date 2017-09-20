@@ -21,6 +21,8 @@ public class JSONResult {
 		return new JSONResult("fail", message, null);
 	}
 
+	
+	
 	public String getResult() {
 		return result;
 	}

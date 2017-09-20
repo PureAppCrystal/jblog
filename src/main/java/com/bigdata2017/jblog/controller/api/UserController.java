@@ -15,10 +15,11 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
-	@RequestMapping(value="/checkid", method=RequestMethod.GET)
-	public JSONResult checkId(@RequestParam(value="id", required=true, defaultValue="") String id) {
-		boolean bExist = userService.existUser( id );
-		return JSONResult.success( bExist );
+
+	@RequestMapping("/checkid")
+	public JSONResult checkId(@RequestParam(value = "id", required = true, defaultValue = "") String id) {
+		boolean bExist = userService.existUser(id);
+		return JSONResult.success(bExist);
+		
 	}
 }
