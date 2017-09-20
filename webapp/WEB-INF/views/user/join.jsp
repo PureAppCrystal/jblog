@@ -23,12 +23,12 @@
 			this.$imgCheck = $("#img-checkid");
 			
 			$("#join-form").submit(this.onJoinFormSubmit.bind(this));
-			this.$buttonCheckID.click(this.onCheckButtonIdClicked.bind(this)); // [중복체크] 클릭
+			this.$buttonCheckID.click(this.onCheckButtonIdClicked.bind(this)); // [중복체크]
 			this.$inputTextID.change(this.onInputTextIdChanged.bind(this));	   // 텍스트 필드
 		},
 		onJoinFormSubmit : function() {
 			
-			//이름
+			// 이름
 			var $inputTextName = $("#name");
 			if ($inputTextName.val() === '') {
 				alert("이름은 필수 항목입니다.");
@@ -36,14 +36,14 @@
 				return false;
 			}
 			
-			//id
+			// id
 			if (this.$inputTextID.val() === '') {
 				alert("아이디는 필수 항목입니다.");
 				this.$inputTextID.focus();
 				return false;
 			}
 			
-			//password
+			// password
 			var $inputTextPassword = $("#password");
 			if ($inputTextPassword.val() === '') {
 				alert("비밀번호는 필수 항목입니다.");
