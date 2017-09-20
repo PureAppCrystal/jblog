@@ -19,9 +19,27 @@ MAXVALUE 9999999999;
 commit;
 
 select * from member;
+select * from blog;
+
+delete from blog
+where length(id) < 5;
 
 delete from member
-where id='sqqs12';
+where length(id) < 5;
 
 select * from member
 where id = 'admin';
+
+insert into member
+	 values('jack', '잭', '1234', sysdate);
+
+alter table member
+add ( role varchar2(10) default 'USER' );
+
+select * from member;
+
+update member
+set role = 'ADMIN'
+where id = 'admin';
+
+commit;

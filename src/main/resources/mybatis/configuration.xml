@@ -3,10 +3,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="uservo" type="com.bigdata2017.jblog.vo.UserVo" />
+		<typeAlias alias="blogvo" type="com.bigdata2017.jblog.vo.BlogVo" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/blog.xml" />
 	</mappers>
 
 </configuration>

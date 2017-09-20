@@ -36,14 +36,29 @@
 		</mvc:message-converters>
 
 		<!-- argument resolver -->
-		<!-- <mvc:argument-resolvers>
-			<bean
-				class="com.bigdata2017.security.AuthUserHandlerMethodArgumentResolver" />
-		</mvc:argument-resolvers> -->
+		<!-- <mvc:argument-resolvers> <bean class="com.bigdata2017.security.AuthUserHandlerMethodArgumentResolver" 
+			/> </mvc:argument-resolvers> -->
 
 	</mvc:annotation-driven>
 
-
+	<!-- Interceptors -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/user/auth" />
+			<bean class="com.bigdata2017.security.AuthLoginInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/user/logout" />
+			<bean class="com.bigdata2017.security.AuthLogoutInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/user/auth" />
+			<mvc:exclude-mapping path="/user/logout" />
+			<mvc:exclude-mapping path="/assets/**" />
+			<bean class="com.bigdata2017.security.AuthInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- 6. MessageSource -->
 	<bean id="messageSource"

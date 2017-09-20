@@ -52,7 +52,7 @@
 			}
 			
 			// agree-prov
-			var $inputCheckAgree = $("#aree-prov");
+			var $inputCheckAgree = $("#agree-prov");
 			if ($inputCheckAgree.is(":checked") == false) {
 				alert("약관 동의 해주세요. ");
 				return false;
@@ -123,10 +123,8 @@
 	<div class="center-content">
 		<h1 class="logo">JBlog</h1>
 		<ul class="menu">
-			<li><a href="">로그인</a></li>
-			<li><a href="">회원가입</a></li>
-			<li><a href="">로그아웃</a></li>
-			<li><a href="">내블로그</a></li>
+			<li><a href="${pageContext.servletContext.contextPath}/user/login">로그인</a></li>
+			<li><a href="${pageContext.servletContext.contextPath}/">메인으로 가기</a></li>
 		</ul>
 		<form class="join-form" id="join-form" method="post" action="${pageContext.servletContext.contextPath}/user/join">
 			<label class="block-label" for="name">이름</label>
@@ -138,7 +136,7 @@
 			<img id="img-checkid" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
 
 			<label class="block-label" for="password">패스워드</label>
-			<input id="password" name="password" type="password" />
+			<input id="password" name="password" type="password">
 
 			<fieldset>
 				<legend>약관동의</legend>

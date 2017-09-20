@@ -5,10 +5,10 @@
 	<insert id="insert" parameterType="uservo">
 		<![CDATA[
 			insert into member
-			values(	#{id }, 
+			values(	#{id },
 					#{name }, 
 					#{password }, 
-					sysdate)
+					sysdate, 'USER' )
 	    ]]>
 	</insert>
 
@@ -18,4 +18,14 @@
 		where id=#{id }
 		 ]]>
 	</select>
+	
+	<select id="getByIdAndPassword" parameterType="map" resultType="uservo">
+		<![CDATA[
+		select id, name, role
+		from member
+		where id=#{id } and
+			  password=#{password }
+		 ]]>
+	</select>
+	
 </mapper>
