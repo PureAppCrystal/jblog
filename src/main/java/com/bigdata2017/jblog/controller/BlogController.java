@@ -3,8 +3,11 @@ package com.bigdata2017.jblog.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bigdata2017.jblog.service.BlogService;
 import com.bigdata2017.jblog.vo.BlogVo;
@@ -33,8 +36,44 @@ public class BlogController {
 		//최신글
 		//마지막 글을 출력 
 		return "blog/blog-main";
+		
+		//카테고리 번호를 받으면- 그 카테고리의 최신글을 출력.하고 
+				//카테고리의 포스팅이 많으면 페이지컨트롤(나중에)
 	}
 	
-	//카테고리 번호를 받으면- 그 카테고리의 최신글을 출력.하고 
-	//카테고리의 포스팅이 많으면 페이지컨트롤(나중에)
+	@RequestMapping({"/admin","/admin/basic"})
+	public String adminBasic(
+			@PathVariable String id ) {
+		
+		return "blog/blog-admin-basic";
+	}
+	
+	@RequestMapping(value="/admin/modify", method=RequestMethod.POST)
+	public String modify(
+//			@PathVariable String id,
+			//@RequestParam("title") String name
+			@ModelAttribute BlogVo vo,
+			Model model
+			) {
+		//System.out.println(vo);
+		boolean result = blogService.updateBlog(vo);
+		
+		
+		
+		//String name = request.getparameter("name");
+		//System.out.println("name : "+name);
+		System.out.println("id:" +vo.getId());
+		System.out.println("title : "+vo.getTitle());
+
+		
+		model.addAttribute("title", vo.getTitle());
+		//model.addAttribute("logo", vo.getLogo());
+		
+		return "blog/blog-admin-basic";
+	}
+			
+	
+	
+	
+	
 }

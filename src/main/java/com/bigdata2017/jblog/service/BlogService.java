@@ -13,7 +13,11 @@ public class BlogService {
 	private BlogDao blogDao;
 	
 	public BlogVo getBlog(String id ) {
-		BlogVo vo =blogDao.getBlog(id); 
+		BlogVo vo = blogDao.getBlog(id); 
 		return vo;
+	}
+	
+	public boolean updateBlog( BlogVo vo ) {
+		return blogDao.update(vo) == 1;
 	}
 }

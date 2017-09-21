@@ -43,6 +43,12 @@
 				return false;
 			}
 			
+			//중복체크 확인
+			if (this.$imgCheck.is(":visible") == false ) {
+				alert("아이디 중복확인을 해주세요.");
+				return false;
+			}
+			
 			// password
 			var $inputTextPassword = $("#password");
 			if ($inputTextPassword.val() === '') {

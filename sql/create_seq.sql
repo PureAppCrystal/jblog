@@ -43,3 +43,6 @@ set role = 'ADMIN'
 where id = 'admin';
 
 commit;
+
+
+select * from blog;

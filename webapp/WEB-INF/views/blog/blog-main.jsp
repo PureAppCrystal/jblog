@@ -12,11 +12,22 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>${title }</h1>
+			
+			<h1>${title }님의 블로그 </h1>
+			
+
 			<ul>
-				<li><a href="">로그인</a></li>
-				<li><a href="">로그아웃</a></li>
-				<li><a href="">블로그 관리</a></li>
+				<c:choose>
+					<c:when test= "${empty authUser }">
+						<li><a href="${pageContext.servletContext.contextPath}/user/login">로그인</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="${pageContext.servletContext.contextPath}/user/logout">로그아웃</a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/${authUser.id }/admin/basic">블로그 관리</a></li>
+					</c:otherwise>
+				</c:choose>
+			
+				
 			</ul>
 		</div>
 		<div id="wrapper">

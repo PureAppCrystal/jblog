@@ -25,7 +25,7 @@
 				<c:otherwise>
 					<li> <font color="blue"> ${authUser.id  }님 환영합니다.</font></li>
 					<li><a href="${pageContext.servletContext.contextPath}/user/logout">로그아웃</a></li>
-					<li><a href="${pageContext.servletContext.contextPath}/blog/blog-main">내블로그</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/${authUser.id }">내블로그</a></li>
 				</c:otherwise>
 			</c:choose>
 			

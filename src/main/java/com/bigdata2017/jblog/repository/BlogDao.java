@@ -22,4 +22,9 @@ public class BlogDao {
 		BlogVo blogVo = sqlSession.selectOne("blog.getblog", id );
 		return blogVo;
 	}
+	
+	public int update(BlogVo vo) {
+		return sqlSession.update("blog.update", vo);
+		
+	}
 }
