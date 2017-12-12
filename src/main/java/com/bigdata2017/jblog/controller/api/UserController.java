@@ -22,5 +22,6 @@ public class UserController {
 		boolean bExist = userService.existUser(id);
 		return JSONResult.success(bExist);
 		
+		
 	}
 }

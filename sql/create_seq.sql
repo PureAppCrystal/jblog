@@ -44,5 +44,9 @@ where id = 'admin';
 
 commit;
 
-
 select * from blog;
+select * from category;
+select * from member;
+select * from post;
+
+

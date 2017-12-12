@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.bigdata2017.jblog.vo.UserVo;
+
 public class AuthLogoutInterceptor extends HandlerInterceptorAdapter {
 
 	@Override

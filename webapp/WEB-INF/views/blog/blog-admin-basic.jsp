@@ -8,15 +8,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
 <Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 </head>
+
+
+<script>
+	console.log("init")
+
+	$("#logo-file").on("change", function() {
+		console.log("test")
+	})
+	
+	
+	function testChange(fis) {
+		console.log("tessssst")
+	}
+</script>
+
 <body>
 	<div id="container">
 		<div id="header">
 			<h1>Spring 이야기</h1>
 			<ul>
-				<li><a href="">로그인</a></li>
-				<li><a href="">로그아웃</a></li>
-				<li><a href="">블로그 관리</a></li>
+				
+				<li><a href="${pageContext.servletContext.contextPath}/user/logout">로그아웃</a></li>
+				
 			</ul>
 		</div>
 		<div id="wrapper">
@@ -24,7 +40,7 @@
 				<ul class="admin-menu">
 					<li class="selected">기본설정</li>
 					<li><a href="${pageContext.servletContext.contextPath}/${authUser.id }/admin/category">카테고리</a></li>
-					<li><a href="${pageContext.servletContext.contextPath}/${authUser.id }/admin/write">글작성</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/${authUser.id }/admin/basic">글작성</a></li>
 				</ul>
 				<form action="${pageContext.servletContext.contextPath}/${authUser.id }/admin/modify" method="post" enctype="multipart/form-data">
 	 		      	<table class="admin-config">
@@ -38,7 +54,7 @@
 			      		</tr>      		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" name="logo-file"></td>      			
+			      			<td><input type="file" name="logo-file" id="logo-file" onchange="testChange(this)"></td>      			
 			      		</tr>           		
 			      		<tr>
 			      			<td class="t">&nbsp;</td>

@@ -19,33 +19,32 @@ public class AuthUserHandlerMethodArgumentResolver implements HandlerMethodArgum
 		MethodParameter parameter, 
 		ModelAndViewContainer mavContainer,
 		NativeWebRequest webRequest,
-		WebDataBinderFactory binderFactory) 
+		WebDataBinderFactory binderFactory)
 		throws Exception {
-		
+
 		if( supportsParameter(parameter) == false) {
 			return WebArgumentResolver.UNRESOLVED;
 		}
 		
 		// @AuthUser 가 붙어있고 파라미터 타입이 UserVo
-		HttpServletRequest request = 
-				webRequest.getNativeRequest( HttpServletRequest.class );
+		HttpServletRequest request = webRequest.getNativeRequest( HttpServletRequest.class );
 		
 		HttpSession session = request.getSession();
 		if( session == null ) {
 			return null;
 		}
 		
-		return session.getAttribute( "authUser" ); 
+		return session.getAttribute("authUser");
 	}
 
 	@Override
 	public boolean supportsParameter(
 		MethodParameter parameter) {
-		AuthUser authUser = 
-		parameter.getParameterAnnotation( AuthUser.class );
-
+		AuthUser authUser = parameter.getParameterAnnotation( AuthUser.class );
+		
 		// @AuthUser 가 안붙어 있음
 		if( authUser == null ) {
+			System.out.println("authUser is Null");
 			return false;
 		}
 		

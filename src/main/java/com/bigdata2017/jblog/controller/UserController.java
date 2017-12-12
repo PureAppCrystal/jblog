@@ -22,7 +22,7 @@ public class UserController {
 	public String join() {
 		return "user/join";
 	}
-
+		
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVo vo) {
 		userService.insertMessage(vo);
@@ -31,7 +31,7 @@ public class UserController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
-
+		System.out.println("get => /login");
 		return "user/login";
 	}
 
@@ -39,10 +39,12 @@ public class UserController {
 	public String login( HttpSession session,
 			@RequestParam(value="id", required=true, defaultValue = "") String id,
 			@RequestParam(value="password", required=true, defaultValue = "") String password ) {
+		System.out.println("post => /login");
 		UserVo userVo = userService.getUser(id, password);
 		if (userVo == null) {
 			return "user/login";
 		}
+		
 		session.setAttribute("authUser", userVo);
 		return "";
 	}

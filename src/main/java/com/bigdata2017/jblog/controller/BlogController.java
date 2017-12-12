@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.bigdata2017.jblog.service.BlogService;
 import com.bigdata2017.jblog.service.FileUploadService;
 import com.bigdata2017.jblog.vo.BlogVo;
+import com.bigdata2017.security.Auth;
 
 @Controller
 @RequestMapping("/{id}")
@@ -45,6 +46,7 @@ public class BlogController {
 				//카테고리의 포스팅이 많으면 페이지컨트롤(나중에)
 	}
 	
+	@Auth
 	@RequestMapping({"/admin","/admin/basic"})
 	public String adminBasic(
 			@PathVariable String id,
@@ -59,6 +61,7 @@ public class BlogController {
 		return "blog/blog-admin-basic";
 	}
 	
+	@Auth
 	@RequestMapping(value="/admin/modify", method=RequestMethod.POST)
 	public String modify(
 //			@PathVariable String id,
@@ -85,17 +88,15 @@ public class BlogController {
 		return "blog/blog-admin-basic";
 	}
 	
-	
+	@Auth
 	@RequestMapping("/admin/category")
 	public String category ( @PathVariable String id) {
-		System.out.println("!");
 		return "blog/blog-admin-category";
 	}
 	
-	
+	@Auth
 	@RequestMapping("/admin/write")
 	public String write ( @PathVariable String id) {
-		System.out.println("2");
 		return "blog/blog-admin-write";
 	}
 			

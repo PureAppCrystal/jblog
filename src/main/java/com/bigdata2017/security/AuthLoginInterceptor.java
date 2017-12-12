@@ -18,14 +18,13 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle( HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-		String id = request.getParameter( "id" );
+		String id 		= request.getParameter( "id" );
 		String password = request.getParameter( "password" );
 		
 //		ApplicationContext ac = 
 //		WebApplicationContextUtils.
 //		getWebApplicationContext(request.getServletContext());
-//		UserService userService = 
-//				ac.getBean( UserService.class );
+//		UserService userService = ac.getBean( UserService.class );
 		
 		UserVo userVo = userService.getUser(id, password);
 		

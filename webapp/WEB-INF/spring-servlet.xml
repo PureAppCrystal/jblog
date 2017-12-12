@@ -11,7 +11,7 @@
 	<aop:aspectj-autoproxy />
 
 	<!-- resource mapping -->
-	<mvc:resources location="file:/uploads/" mapping="/uploads/images/**"/>
+	<mvc:resources location="file:/uploads/" mapping="/uploads/images/**" />
 
 
 	<!-- validator, conversionService, messageConverter를 자동으로 등록 -->
@@ -40,9 +40,9 @@
 		</mvc:message-converters>
 
 		<!-- argument resolver -->
-		<!-- <mvc:argument-resolvers> <bean class="com.bigdata2017.security.AuthUserHandlerMethodArgumentResolver" 
-			/> </mvc:argument-resolvers> -->
-
+		<mvc:argument-resolvers>
+			<bean class="com.bigdata2017.security.AuthUserHandlerMethodArgumentResolver" />
+		</mvc:argument-resolvers>
 	</mvc:annotation-driven>
 
 	<!-- Interceptors -->
